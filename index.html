@@ -21,16 +21,20 @@
         <main>
             <p>
                 ТЫ СЕЙЧАС
-                <span class=".connectivity-status"></span>.
+                <span class="connectivity-status"></span>.
             </p>
         </main>
 
         <img src="/images/fit.jpg" alt="Google" />
 
         <script>
+
+            console.log('dddddddd');
             const connectivityStatus = document.querySelector(
                 '.connectivity-status'
             );
+
+            console.log(connectivityStatus);
 
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', () =>
@@ -39,12 +43,15 @@
             }
 
             window.addEventListener('online', function () {
+                console.log('online');
                 connectivityStatus.classList.add('online');
                 connectivityStatus.classList.remove('offline');
                 connectivityStatus.innerText = 'online';
             });
 
             window.addEventListener('offline', function () {
+                console.log('offline');
+
                 connectivityStatus.classList.add('offline');
                 connectivityStatus.classList.remove('online');
                 connectivityStatus.innerText = 'offline';
