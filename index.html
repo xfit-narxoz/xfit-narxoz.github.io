@@ -1,61 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="initial-scale=1" />
-        <meta name="theme-color" content="#3E82F7" />
-        <meta
-            name="description"
-            content="x-fit Будь сильнее"
-        />
-        <title>x-fit Будь сильнее</title>
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="stylesheet" href="/css/styles.css" />
-    </head>
 
-    <body>
-        <header>
-            <h1>x-fit Будь сильнее</h1>
-        </header>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1" />
+    <meta name="theme-color" content="#3E82F7" />
+    <meta name="description" content="x-fit Будь сильнее" />
+    <title>x-fit Будь сильнее</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
 
-        <main>
-            <p>
-                ТЫ СЕЙЧАС
-                <span class="connectivity-status"></span>.
-            </p>
-        </main>
+<body>
+    <header>
+        <h1>x-fit Будь сильнее</h1>
+    </header>
 
-        <img src="/images/fit.jpg" alt="Google" />
+    <main>
+        <p>
+            ТЫ СЕЙЧАС
+            <span class="connectivity-status"></span>.
+        </p>
+    </main>
 
-        <script>
+    <img src="/images/fit.jpg" alt="Google" />
 
-            console.log('dddddddd');
-            const connectivityStatus = document.querySelector(
-                '.connectivity-status'
+    <script>
+
+        console.log('dddddddd');
+        const connectivityStatus = document.querySelector(
+            '.connectivity-status'
+        );
+
+        console.log(connectivityStatus);
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () =>
+                navigator.serviceWorker.register('serviceWorker.js')
             );
+        }
 
-            console.log(connectivityStatus);
+        // window.addEventListener('online', function () {
+        //     console.log('online');
+        //     connectivityStatus.classList.add('online');
+        //     connectivityStatus.classList.remove('offline');
+        //     connectivityStatus.innerText = 'online';
+        // });
 
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () =>
-                    navigator.serviceWorker.register('serviceWorker.js')
-                );
-            }
+        // window.addEventListener('offline', function () {
+        //     console.log('offline');
 
-            window.addEventListener('online', function () {
-                console.log('online');
-                connectivityStatus.classList.add('online');
-                connectivityStatus.classList.remove('offline');
-                connectivityStatus.innerText = 'online';
-            });
+        //     connectivityStatus.classList.add('offline');
+        //     connectivityStatus.classList.remove('online');
+        //     connectivityStatus.innerText = 'offline';
+        // });
 
-            window.addEventListener('offline', function () {
-                console.log('offline');
+        window.addEventListener('online', (event) => {
+            console.log("1111.");
+        });
+        window.ononline = (event) => {
+            console.log("2222");
+        };
 
-                connectivityStatus.classList.add('offline');
-                connectivityStatus.classList.remove('online');
-                connectivityStatus.innerText = 'offline';
-            });
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>

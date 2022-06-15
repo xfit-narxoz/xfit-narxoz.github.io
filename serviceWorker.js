@@ -1,5 +1,5 @@
 const cacheName = 'xfit-narxoz';
-const cacheVersion = `${cacheName}::1.0.0`;
+const cacheVersion = `${cacheName}::1.0.1`;
 
 const cachedFiles = ['/', '/css/styles.css'];
 
