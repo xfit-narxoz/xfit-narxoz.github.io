@@ -40,33 +40,16 @@
             );
         }
 
-        // window.addEventListener('online', function () {
-        //     console.log('online');
-        //     connectivityStatus.classList.add('online');
-        //     connectivityStatus.classList.remove('offline');
-        //     connectivityStatus.innerText = 'online';
-        // });
-
-        // window.addEventListener('offline', function () {
-        //     console.log('offline');
-
-        //     connectivityStatus.classList.add('offline');
-        //     connectivityStatus.classList.remove('online');
-        //     connectivityStatus.innerText = 'offline';
-        // });
-
-        function handleConnectionChange(event){
-            if(event.type == "offline"){
-                console.log("You lost connection.");
-            }
-            if(event.type == "online"){
-                console.log("You are now back online.");
-            }
-            
-            console.log(new Date(event.timeStamp));
+        if(navigator.onLine) {
+            connectivityStatus.classList.add('online');
+            connectivityStatus.classList.remove('offline');
+            connectivityStatus.innerText = 'online';
+        } else {
+            connectivityStatus.classList.add('offline');
+            connectivityStatus.classList.remove('online');
+            connectivityStatus.innerText = 'offline';
         }
-        window.addEventListener('online', handleConnectionChange);
-        window.addEventListener('offline', handleConnectionChange);
+       console.log("navigator.online", navigator.onLine);
     </script>
 </body>
 
