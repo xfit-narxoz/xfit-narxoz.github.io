@@ -55,13 +55,18 @@
         //     connectivityStatus.innerText = 'offline';
         // });
 
-        window.addEventListener('online', (event) => {
-            console.log("1111.");
-        });
-        window.ononline = (event) => {
-            console.log("2222");
-        };
-
+        function handleConnectionChange(event){
+            if(event.type == "offline"){
+                console.log("You lost connection.");
+            }
+            if(event.type == "online"){
+                console.log("You are now back online.");
+            }
+            
+            console.log(new Date(event.timeStamp));
+        }
+        window.addEventListener('online', handleConnectionChange);
+        window.addEventListener('offline', handleConnectionChange);
     </script>
 </body>
 
