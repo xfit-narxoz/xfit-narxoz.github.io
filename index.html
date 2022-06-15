@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1" />
+        <meta name="theme-color" content="#3E82F7" />
+        <meta
+            name="description"
+            content="x-fit Будь сильнее"
+        />
+        <title>x-fit Будь сильнее</title>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="stylesheet" href="/css/styles.css" />
+    </head>
+
+    <body>
+        <header>
+            <h1>x-fit Будь сильнее</h1>
+        </header>
+
+        <main>
+            <p>
+                ТЫ СЕЙЧАС
+                <span class=".connectivity-status"></span>.
+            </p>
+        </main>
+
+        <img src="/images/fit.jpg" alt="Google" />
+
+        <script>
+            const connectivityStatus = document.querySelector(
+                '.connectivity-status'
+            );
+
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () =>
+                    navigator.serviceWorker.register('serviceWorker.js')
+                );
+            }
+
+            window.addEventListener('online', function () {
+                connectivityStatus.classList.add('online');
+                connectivityStatus.classList.remove('offline');
+                connectivityStatus.innerText = 'online';
+            });
+
+            window.addEventListener('offline', function () {
+                connectivityStatus.classList.add('offline');
+                connectivityStatus.classList.remove('online');
+                connectivityStatus.innerText = 'offline';
+            });
+        </script>
+    </body>
+</html>

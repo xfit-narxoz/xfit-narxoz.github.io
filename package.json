@@ -1,0 +1,7 @@
+{
+  "name": "pwa-starter-kit",
+  "devDependencies": {
+    "eslint": "8.5.0"
+  },
+  "private": true
+}
